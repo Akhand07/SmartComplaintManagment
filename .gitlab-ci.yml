@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 build_job:
   stage: build
@@ -7,3 +8,10 @@ build_job:
   script:
     - dotnet restore
     - dotnet build
+
+
+test_job:
+    stage: test
+    image: mcr.microsoft.com/dotnet/sdk:7.0
+    script:
+    - dotnet test -- configuration Release
