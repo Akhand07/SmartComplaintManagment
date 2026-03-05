@@ -1,5 +1,6 @@
 using SmartComplaintManagement.Application.Interface;
 using SmartComplaintManagement.Application.Service;
+using SmartComplaintManagement.Infrastructure;
 using SmartComplaintManagement.Infrastructure.Data;
 using SmartComplaintManagement.Infrastructure.Repository;
 
@@ -12,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<MongoDbContext>();
 builder.Services.AddScoped<IComplaintService, ComplaintService>();
 builder.Services.AddScoped<IComplaintRepository, ComplaintRepository>();
 
